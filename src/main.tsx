@@ -10,7 +10,7 @@ initializeDataLayer()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/gcf">
+    <BrowserRouter basename="/gcf/2027">
       <Routes>
         {/* 日本語版（デフォルト） */}
         <Route path="/" element={<App />} />

@@ -275,6 +275,11 @@ const getTimelineData = (t: ReturnType<typeof getTranslation>) => {
   ];
 };
 
+const assetPath = (path: string) => {
+  const cleanedPath = path.replace(/^\/gcf\//, "").replace(/^\//, "");
+  return `${import.meta.env.BASE_URL}${cleanedPath}`;
+};
+
 // 講演者データ - 日英両方の情報を含む
 const speakersData = [
   {
@@ -832,7 +837,7 @@ const getSpeakers = (language: Language) => {
   return speakersData.map(speaker => ({
     name: speaker.name[language] || speaker.name.en,
     title: speaker.title[language] || speaker.title.en,
-    img: speaker.img,
+    img: assetPath(speaker.img),
     bio: speaker.bio[language] || speaker.bio.en,
     sessions: speaker.sessions[language] || speaker.sessions.en
   }));
@@ -949,13 +954,13 @@ export default function App() {
             <img
               onClick={() => scrollToSection("hero")}
               className="cursor-pointer h-8 md:h-10 object-contain max-w-[200px] md:max-w-[300px] hidden md:block"
-              src="/gcf/title-single-26.png"
+              src={assetPath("/gcf/title-single-26.png")}
               alt="Global Commons Forum"
             />
             <img
               onClick={() => scrollToSection("hero")}
               className="cursor-pointer h-10 object-contain max-w-[200px] block md:hidden"
-              src="/gcf/title-multi-26.png"
+              src={assetPath("/gcf/title-multi-26.png")}
               alt="Global Commons Forum"
             />
           </div>
@@ -1039,7 +1044,7 @@ export default function App() {
             muted 
             loop 
             playsInline
-            poster="/gcf/top.JPG"
+            poster={assetPath("/gcf/top.JPG")}
             onLoadedData={(e) => {
               // 動画が読み込まれた後、確実にループ再生を設定
               const target = e.target as HTMLVideoElement;
@@ -1055,13 +1060,13 @@ export default function App() {
               }
             }}
           >
-            <source src="/gcf/gcf2025-trailer.webm" type="video/webm" />
+            <source src={assetPath("/gcf/gcf2025-trailer.webm")} type="video/webm" />
             Your browser does not support the video tag.
           </video>
           
           {/* 動画再生できない環境用のフォールバック画像 */}
           <img 
-            src="/gcf/top.JPG" 
+            src={assetPath("/gcf/top.JPG")} 
             alt="Global Commons Forum Background"
             className="absolute top-0 left-0 w-full h-full object-cover z-[-1] opacity-70"
             style={{ display: 'none' }}
@@ -1073,7 +1078,7 @@ export default function App() {
           {/* コンテンツオーバーレイ - 左下配置 */}
           <div className="absolute bottom-12 left-4 md:left-12 z-1 text-left">
             <img 
-              src="/gcf/title-multi-26.png" 
+              src={assetPath("/gcf/title-multi-26.png")} 
               alt="Global Commons Forum" 
               className="mb-2 md:mb-4 h-27 md:h-40 object-contain"
               style={{ filter: 'drop-shadow(0 0 30px rgba(96, 165, 250, 0.3))' }}
@@ -1270,12 +1275,12 @@ export default function App() {
               <h3 className="font-bold text-2xl mb-8 text-center">{t.partners.coHost}</h3>
               <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 <div className="flex bg-white p-8 text-center items-center font-bold text-black flex-col rounded-lg gap-4">
-                  <img src="/gcf/organizations/u_tokyo.svg" alt={t.organizations.universityOfTokyo} />
+                  <img src={assetPath("/gcf/organizations/u_tokyo.svg")} alt={t.organizations.universityOfTokyo} />
                   <span className="text-md">{t.organizations.universityOfTokyo}</span>
                 </div>
                 <div className="flex bg-white p-8 text-center items-center font-bold text-black flex-col rounded-lg gap-4">
                   <img
-                    src="/gcf/organizations/cgc.svg"
+                    src={assetPath("/gcf/organizations/cgc.svg")}
                     alt={t.organizations.globalCommonsCenter}
                   />
                   <span className="text-md">
@@ -1284,7 +1289,7 @@ export default function App() {
                 </div>
                 <div className="flex bg-white p-8 text-center items-center font-bold text-black flex-col rounded-lg gap-4">
                   <img
-                    src="/gcf/organizations/riken.svg"
+                    src={assetPath("/gcf/organizations/riken.svg")}
                     alt={t.organizations.riken}
                     className="w-200 object-contain"
                   />
@@ -1297,7 +1302,7 @@ export default function App() {
               <div className="gap-8 grid grid-cols-1">
                 <div className="flex bg-white p-8 text-center items-center font-bold text-black flex-col rounded-lg gap-4">
                   <img
-                    src="/gcf/organizations/mitsubishi.svg"
+                    src={assetPath("/gcf/organizations/mitsubishi.svg")}
                     alt={t.organizations.mitsubishi}
                     className="max-w-150 object-contain"
                   />
