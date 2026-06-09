@@ -954,13 +954,13 @@ export default function App() {
             <img
               onClick={() => scrollToSection("hero")}
               className="cursor-pointer h-8 md:h-10 object-contain max-w-[200px] md:max-w-[300px] hidden md:block"
-              src={assetPath("/gcf/title-single-26.png")}
+              src={assetPath("/gcf/title-single.png")}
               alt="Global Commons Forum"
             />
             <img
               onClick={() => scrollToSection("hero")}
               className="cursor-pointer h-10 object-contain max-w-[200px] block md:hidden"
-              src={assetPath("/gcf/title-multi-26.png")}
+              src={assetPath("/gcf/title-multi.png")}
               alt="Global Commons Forum"
             />
           </div>
@@ -1078,7 +1078,7 @@ export default function App() {
           {/* コンテンツオーバーレイ - 左下配置 */}
           <div className="absolute bottom-12 left-4 md:left-12 z-1 text-left">
             <img 
-              src={assetPath("/gcf/title-multi-26.png")} 
+              src={assetPath("/gcf/title-multi.png")} 
               alt="Global Commons Forum" 
               className="mb-2 md:mb-4 h-27 md:h-40 object-contain"
               style={{ filter: 'drop-shadow(0 0 30px rgba(96, 165, 250, 0.3))' }}
