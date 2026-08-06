@@ -1083,6 +1083,8 @@ export default function App() {
           <div className="absolute bottom-0 left-0 right-0 h-3/10 z-0 pointer-events-none bg-[linear-gradient(to_top,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.4)_30%,transparent_100%)]"></div>
 
           {/* コンテンツオーバーレイ - 左下配置 */}
+          {/*
+  参加登録ボタンは一時的に非表示
           <div className="absolute bottom-12 left-4 md:left-12 z-1 text-left">
             <img 
               src={assetPath("/gcf/title-multi.png")} 
@@ -1103,6 +1105,7 @@ export default function App() {
               {t.hero.register}
             </InteractiveHoverButton>
           </div>
+          */}
         </section>
 
         {/* 開催概要セクション */}
@@ -1141,7 +1144,7 @@ export default function App() {
             </div>
           </div>
           
-          {/* 参加登録ボタン */}
+          {/*参加登録ボタンは一時的に非表示
           <div className="flex justify-center mt-12">
             <InteractiveHoverButton
               onClick={() => {
@@ -1153,6 +1156,7 @@ export default function App() {
               {t.about.register}
             </InteractiveHoverButton>
           </div>
+         */} 
         </section>
 
         {/* 日時・場所セクション */}
@@ -1206,7 +1210,7 @@ export default function App() {
             </div>
           </div>
         </section>
-        {/* 参加登録ボタン */}
+        {/*参加登録ボタンは一時的に非表示
         <div className="flex justify-center mt-12">
             <InteractiveHoverButton
               onClick={() => {
@@ -1218,7 +1222,7 @@ export default function App() {
               {t.schedule.register}
             </InteractiveHoverButton>
           </div>
-
+*/}
         {/* 登壇者セクション */}
 <section
   className="py-12 px-8 mx-auto max-w-7xl relative"
@@ -1389,18 +1393,21 @@ export default function App() {
           </div>
         </section>
         
-        {/* フッター手前の参加登録ボタン */}
-        <div className="flex justify-center pb-16">
-          <InteractiveHoverButton
-            onClick={() => {
-              trackRegistrationClick('footer');
-              window.open('https://ws.formzu.net/fgen/S744341790/', '_blank');
-            }}
-            className="registration-button bg-emerald-600 text-white border-2 border-emerald-600 hover:bg-emerald-700 py-6 px-16 text-2xl"
-          >
-            {t.footer.register}
-          </InteractiveHoverButton>
-        </div>
+        {/*
+  フッター手前の参加登録ボタンは一時的に非表示
+
+  <div className="flex justify-center pb-16">
+    <InteractiveHoverButton
+      onClick={() => {
+        trackRegistrationClick('footer');
+        window.open('https://ws.formzu.net/fgen/S744341790/', '_blank');
+      }}
+      className="registration-button bg-emerald-600 text-white border-2 border-emerald-600 hover:bg-emerald-700 py-6 px-16 text-2xl"
+    >
+      {t.footer.register}
+    </InteractiveHoverButton>
+  </div>
+*/}
       </div>
 
       {/* フッター - TracingBeamの外に配置 */}

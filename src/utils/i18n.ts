@@ -162,8 +162,8 @@ export const jaTranslations: TranslationData = {
   details: {
     title: '日時・場所',
     dateTime: {
-      title: '開催日時',
-      value: '2027年2月(仮)',
+      title: '開催日時(仮)',
+      value: '2027年2月',
     },
     venue: {
       title: '会場(仮)',
@@ -211,7 +211,7 @@ export const jaTranslations: TranslationData = {
   access: {
     title: 'アクセス',
     address: {
-      title: '会場住所',
+      title: '会場(仮)',
       venue: '〒113-0032 東京都文京区弥生１丁目１',
       office: '東京大学弥生講堂一条ホール',
     },
@@ -282,10 +282,10 @@ export const enTranslations: TranslationData = {
     title: 'Date & Venue',
     dateTime: {
       title: 'Date & Time',
-      value: 'Tuesday, October 7, 2025',
+      value: 'February 2027 (TBC)',
     },
     venue: {
-      title: 'Venue',
+      title: 'Venue (TBC)',
       name: 'Ichijo Hall, Yayoi Auditorium, The University of Tokyo, Japan (Hybrid format)',
       address: 'Yayoi Auditorium(Ichijō Hall), 1-chōme-1-1 Yayoi, Bunkyo-Ku, Tokyo 113-0032',
       accessLink: 'Detailed access information →',
@@ -332,7 +332,7 @@ export const enTranslations: TranslationData = {
     title: 'Access',
     address: {
       title: 'Venue Address (TBC)',
-      venue: '1 Chome-1-1 Yayoi, 文京区 Bunkyo City, Tokyo 113-0032',
+      venue: '1 Chome-1-1 Yayoi, Bunkyo City, Tokyo 113-0032',
       office: 'The University of Tokyo Ichijo Hall, Yayoi Auditorium',
     },
     nearestStation: {
