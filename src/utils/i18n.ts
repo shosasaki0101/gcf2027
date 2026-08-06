@@ -147,8 +147,8 @@ export const jaTranslations: TranslationData = {
   hero: {
     title: 'Global Commons Forum',
     subtitle: 'Safeguarding Global Commons through Transition to Nature Positive Economy',
-    date: '2025年10月7日（火）',
-    venue: '場所：東京大学 一条ホール',
+    date: '2027年2月(仮)',
+    venue: '場所(仮)：東京大学 一条ホール',
     register: '参加登録',
   },
   
@@ -163,10 +163,10 @@ export const jaTranslations: TranslationData = {
     title: '日時・場所',
     dateTime: {
       title: '開催日時',
-      value: '2025年10月7日（火）',
+      value: '2027年2月(仮)',
     },
     venue: {
-      title: '会場',
+      title: '会場(仮)',
       name: '弥生講堂 一条ホール',
       address: '〒113-0032 東京都文京区弥生１丁目１',
       accessLink: '詳しいアクセス情報はこちら →',
@@ -266,8 +266,8 @@ export const enTranslations: TranslationData = {
   hero: {
     title: 'Global Commons Forum',
     subtitle: 'Safeguarding Global Commons through Transition to Nature Positive Economy',
-    date: '7 October 2025',
-    venue: 'Venue: University of Tokyo, Ichijo Hall',
+    date: 'February 2027 (TBC)',
+    venue: 'Venue (TBC): University of Tokyo, Ichijo Hall',
     register: 'Register',
   },
   
@@ -331,7 +331,7 @@ export const enTranslations: TranslationData = {
   access: {
     title: 'Access',
     address: {
-      title: 'Venue Address',
+      title: 'Venue Address (TBC)',
       venue: '1 Chome-1-1 Yayoi, 文京区 Bunkyo City, Tokyo 113-0032',
       office: 'The University of Tokyo Ichijo Hall, Yayoi Auditorium',
     },
