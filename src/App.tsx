@@ -840,6 +840,7 @@ const visibleSpeakerNames = [
   "Mark Gough",
   "Thomas Ward Crowther",
   "Guido Schmidt-Traub",
+
 ];
 
 // 講演者データを言語に応じて変換する関数
