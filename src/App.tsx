@@ -834,11 +834,18 @@ const speakersData = [
     }
   },
 ];
+// 誰を表示するかを指定
+const visibleSpeakerNames = [
+  "Naoko Ishii",
+  "Mark Gough",
+  "Thomas Ward Crowther",
+  "Guido Schmidt-Traub",
+];
 
 // 講演者データを言語に応じて変換する関数
 const getSpeakers = (language: Language) => {
   return speakersData
-    .filter((speaker) => speaker.name.en === "Naoko Ishii")
+    .filter((speaker) => visibleSpeakerNames.includes(speaker.name.en))
     .map((speaker) => ({
       name: speaker.name[language] || speaker.name.en,
       title: speaker.title[language] || speaker.title.en,

@@ -147,13 +147,13 @@ export const jaTranslations: TranslationData = {
   hero: {
     title: 'Global Commons Forum',
     subtitle: 'Safeguarding Global Commons through Transition to Nature Positive Economy',
-    date: '2027年2月(仮)',
-    venue: '場所(仮)：東京大学 一条ホール',
+    date: '2027年2月18日(木)',
+    venue: '場所：東京大学 一条ホール',
     register: '参加登録',
   },
   
   about: {
-    title: '開催概要',
+    title: '2026年度 Global Commons Forum 開催概要',
     description: 'Planetary boundary science shows that the current economic system is pushing the stability and resilience of the Earth system, the "global commons", beyond its limits. Soon we will go beyond the Earth’s safe operating zone which would no longer support human wellbeing. \n To avoid such a catastrophe, a fundamental transformation of the economic system is urgently required. One effective lever is to account for the full value of natural capital and incorporate it into our economic decision-making. \n At this Forum, a diverse group of experts will discuss pathways to accelerate the transition through valuing natural capital, linking local actions to the global level, and building effective AI governance to support the transition.',
     videoTitle: 'Global Commons Forum 2025の様子',
     register: '参加登録',
@@ -162,11 +162,11 @@ export const jaTranslations: TranslationData = {
   details: {
     title: '日時・場所',
     dateTime: {
-      title: '開催日時(仮)',
-      value: '2027年2月',
+      title: '開催日時',
+      value: '2027年2月18日(木)',
     },
     venue: {
-      title: '会場(仮)',
+      title: '会場',
       name: '弥生講堂 一条ホール',
       address: '〒113-0032 東京都文京区弥生１丁目１',
       accessLink: '詳しいアクセス情報はこちら →',
@@ -211,7 +211,7 @@ export const jaTranslations: TranslationData = {
   access: {
     title: 'アクセス',
     address: {
-      title: '会場(仮)',
+      title: '会場',
       venue: '〒113-0032 東京都文京区弥生１丁目１',
       office: '東京大学弥生講堂一条ホール',
     },
@@ -266,13 +266,13 @@ export const enTranslations: TranslationData = {
   hero: {
     title: 'Global Commons Forum',
     subtitle: 'Safeguarding Global Commons through Transition to Nature Positive Economy',
-    date: 'February 2027 (TBC)',
-    venue: 'Venue (TBC): University of Tokyo, Ichijo Hall',
+    date: 'February 18, 2027 (Thursday)',
+    venue: 'Venue: University of Tokyo, Ichijo Hall',
     register: 'Register',
   },
   
   about: {
-    title: 'About the Forum',
+    title: 'About the Global Commons Forum FY2026',
     description: 'Planetary boundary science shows that the current economic system is pushing the stability and resilience of the Earth system, the "global commons", beyond its limits. Soon we will go beyond the Earth’s safe operating zone which would no longer support human wellbeing. To avoid such a catastrophe, a fundamental transformation of the economic system is urgently required. One effective lever is to account for the full value of natural capital and incorporate it into our economic decision-making. At this Forum, a diverse group of experts will discuss pathways to accelerate the transition through valuing natural capital, linking local actions to the global level, and building effective AI governance to support the transition.',
     videoTitle: 'Highlight of Global Commons Forum 2025',
     register: 'Register',
@@ -282,10 +282,10 @@ export const enTranslations: TranslationData = {
     title: 'Date & Venue',
     dateTime: {
       title: 'Date & Time',
-      value: 'February 2027 (TBC)',
+      value: 'February 18, 2027 (Thursday)',
     },
     venue: {
-      title: 'Venue (TBC)',
+      title: 'Venue',
       name: 'Ichijo Hall, Yayoi Auditorium, The University of Tokyo, Japan (Hybrid format)',
       address: 'Yayoi Auditorium(Ichijō Hall), 1-chōme-1-1 Yayoi, Bunkyo-Ku, Tokyo 113-0032',
       accessLink: 'Detailed access information →',
@@ -331,7 +331,7 @@ export const enTranslations: TranslationData = {
   access: {
     title: 'Access',
     address: {
-      title: 'Venue Address (TBC)',
+      title: 'Venue Address',
       venue: '1 Chome-1-1 Yayoi, Bunkyo City, Tokyo 113-0032',
       office: 'The University of Tokyo Ichijo Hall, Yayoi Auditorium',
     },
