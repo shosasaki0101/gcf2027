@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
           {/* コピーライト */}
           <div className="text-center">
             <p className="text-lg font-semibold text-blue-200 mb-2">
-              © 2026 Global Commons Forum
+              © Global Commons Forum FY2026
             </p>
             <p className="text-sm text-gray-400">
               All rights reserved.

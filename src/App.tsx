@@ -26,6 +26,9 @@ const sections = [
   { id: "access", name: "アクセス" },
 ];
 
+const showScheduleDetails = false;
+const showRegistrationButtons = false;
+
 // タイムラインデータ - SessionInfoコンポーネント内でi18nを使用するため言語分岐不要
 const getTimelineData = (t: ReturnType<typeof getTranslation>) => {
   return [
@@ -831,16 +834,26 @@ const speakersData = [
     }
   },
 ];
+// 誰を表示するかを指定
+const visibleSpeakerNames = [
+  "Naoko Ishii",
+  "Mark Gough",
+  "Thomas Ward Crowther",
+  "Guido Schmidt-Traub",
+
+];
 
 // 講演者データを言語に応じて変換する関数
 const getSpeakers = (language: Language) => {
-  return speakersData.map(speaker => ({
-    name: speaker.name[language] || speaker.name.en,
-    title: speaker.title[language] || speaker.title.en,
-    img: assetPath(speaker.img),
-    bio: speaker.bio[language] || speaker.bio.en,
-    sessions: speaker.sessions[language] || speaker.sessions.en
-  }));
+  return speakersData
+    .filter((speaker) => visibleSpeakerNames.includes(speaker.name.en))
+    .map((speaker) => ({
+      name: speaker.name[language] || speaker.name.en,
+      title: speaker.title[language] || speaker.title.en,
+      img: assetPath(speaker.img),
+      bio: speaker.bio[language] || speaker.bio.en,
+      sessions: speaker.sessions[language] || speaker.sessions.en,
+    }));
 };
 
 export default function App() {
@@ -979,15 +992,17 @@ export default function App() {
               </button>
             ))}
             <LanguageSwitcher />
-            <InteractiveHoverButton
-              onClick={() => {
-                trackRegistrationClick('header');
-                window.open('https://ws.formzu.net/fgen/S744341790/', '_blank');
-              }}
-              className="registration-button bg-emerald-600 text-white border-2 border-emerald-600 hover:bg-emerald-700"
-            >
-              {t.nav.register}
-            </InteractiveHoverButton>
+            {showRegistrationButtons && (
+  <InteractiveHoverButton
+    onClick={() => {
+      trackRegistrationClick('header');
+      window.open('https://ws.formzu.net/fgen/S744341790/', '_blank');
+    }}
+    className="registration-button bg-emerald-600 text-white border-2 border-emerald-600 hover:bg-emerald-700"
+  >
+    {t.nav.register}
+  </InteractiveHoverButton>
+)}
           </nav>
 
           {/* モバイル用言語切り替えとハンバーガーメニューボタン（1000px未満） */}
@@ -1076,6 +1091,8 @@ export default function App() {
           <div className="absolute bottom-0 left-0 right-0 h-3/10 z-0 pointer-events-none bg-[linear-gradient(to_top,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.4)_30%,transparent_100%)]"></div>
 
           {/* コンテンツオーバーレイ - 左下配置 */}
+          {/*
+  参加登録ボタンは一時的に非表示
           <div className="absolute bottom-12 left-4 md:left-12 z-1 text-left">
             <img 
               src={assetPath("/gcf/title-multi.png")} 
@@ -1096,6 +1113,7 @@ export default function App() {
               {t.hero.register}
             </InteractiveHoverButton>
           </div>
+          */}
         </section>
 
         {/* 開催概要セクション */}
@@ -1134,7 +1152,7 @@ export default function App() {
             </div>
           </div>
           
-          {/* 参加登録ボタン */}
+          {/*参加登録ボタンは一時的に非表示
           <div className="flex justify-center mt-12">
             <InteractiveHoverButton
               onClick={() => {
@@ -1146,6 +1164,7 @@ export default function App() {
               {t.about.register}
             </InteractiveHoverButton>
           </div>
+         */} 
         </section>
 
         {/* 日時・場所セクション */}
@@ -1199,7 +1218,7 @@ export default function App() {
             </div>
           </div>
         </section>
-        {/* 参加登録ボタン */}
+        {/*参加登録ボタンは一時的に非表示
         <div className="flex justify-center mt-12">
             <InteractiveHoverButton
               onClick={() => {
@@ -1211,55 +1230,75 @@ export default function App() {
               {t.schedule.register}
             </InteractiveHoverButton>
           </div>
-
+*/}
         {/* 登壇者セクション */}
-        <section
-          className="py-12 px-8 mx-auto max-w-7xl relative"
-          ref={(el) => {
-            sectionRefs.current[3] = el;
-          }}
-          id="speakers"
-        >
-          <h2 className="font-bold mb-4 text-sky-300 text-3xl">{t.speakers.title}</h2>
-          {/* 全画面講演者セクション */}
-          <div
-            className="w-screen relative z-2 flex items-center justify-center"
-            style={{
-              marginLeft: "calc(-50vw + 50%)",
-              marginRight: "calc(-50vw + 50%)",
-            }}
-          >
-            <SpeakersMarquee
-              speakers={speakers}
-              onSpeakerClick={handleSpeakerClick}
-            />
-          </div>
-        </section>
+<section
+  className="py-12 px-8 mx-auto max-w-7xl relative"
+  ref={(el) => {
+    sectionRefs.current[3] = el;
+  }}
+  id="speakers"
+>
+  <h2 className="font-bold mb-4 text-sky-300 text-3xl">{t.speakers.title}</h2>
+
+  <p className="text-lg opacity-90 mb-8">
+    {currentLanguage === "ja"
+      ? "その他の登壇者は順次公開予定です。"
+      : "Additional speakers will be announced soon."}
+  </p>
+
+  {/* 全画面講演者セクション */}
+  <div
+    className="w-screen relative z-2 flex items-center justify-center"
+    style={{
+      marginLeft: "calc(-50vw + 50%)",
+      marginRight: "calc(-50vw + 50%)",
+    }}
+  >
+    <SpeakersMarquee
+      speakers={speakers}
+      onSpeakerClick={handleSpeakerClick}
+    />
+  </div>
+</section>
 
         {/* タイムテーブルセクション - Timelineコンポーネントを使用 */}
-        <section
-          className="pt-8 pb-16 px-8 mx-auto max-w-7xl relative"
-          ref={(el) => {
-            sectionRefs.current[4] = el;
-          }}
-          id="schedule"
-        >
-          <h2 className="font-bold mb-4 text-sky-300 text-3xl">{t.schedule.title}</h2>
-          <Timeline data={timelineData} />
-          
-          {/* 参加登録ボタン */}
-          <div className="flex justify-center mt-12">
-            <InteractiveHoverButton
-              onClick={() => {
-                trackRegistrationClick('schedule');
-                window.open('https://ws.formzu.net/fgen/S744341790/', '_blank');
-              }}
-              className="registration-button bg-emerald-600 text-white border-2 border-emerald-600 hover:bg-emerald-700 py-8 px-20 text-3xl"
-            >
-              {t.schedule.register}
-            </InteractiveHoverButton>
-          </div>
-        </section>
+<section
+  className="pt-8 pb-16 px-8 mx-auto max-w-7xl relative"
+  ref={(el) => {
+    sectionRefs.current[4] = el;
+  }}
+  id="schedule"
+>
+  <h2 className="font-bold mb-4 text-sky-300 text-3xl">{t.schedule.title}</h2>
+
+  {showScheduleDetails ? (
+    <Timeline data={timelineData} />
+  ) : (
+    <div className="bg-[rgba(255,255,255,0.05)] p-8 rounded-sm mt-8">
+      <p className="text-lg opacity-90">
+        {currentLanguage === "ja"
+          ? "タイムテーブルは後日公開予定です。"
+          : "Timetable to be announced."}
+      </p>
+    </div>
+  )}
+
+  {/*
+  参加登録ボタンは一時的に非表示
+  <div className="flex justify-center mt-12">
+    <InteractiveHoverButton
+      onClick={() => {
+        trackRegistrationClick('schedule');
+        window.open('https://ws.formzu.net/fgen/S744341790/', '_blank');
+      }}
+      className="registration-button bg-emerald-600 text-white border-2 border-emerald-600 hover:bg-emerald-700 py-8 px-20 text-3xl"
+    >
+      {t.schedule.register}
+    </InteractiveHoverButton>
+  </div>
+  */}
+</section>
 
         {/* パートナーセクション */}
         <section
@@ -1362,18 +1401,21 @@ export default function App() {
           </div>
         </section>
         
-        {/* フッター手前の参加登録ボタン */}
-        <div className="flex justify-center pb-16">
-          <InteractiveHoverButton
-            onClick={() => {
-              trackRegistrationClick('footer');
-              window.open('https://ws.formzu.net/fgen/S744341790/', '_blank');
-            }}
-            className="registration-button bg-emerald-600 text-white border-2 border-emerald-600 hover:bg-emerald-700 py-6 px-16 text-2xl"
-          >
-            {t.footer.register}
-          </InteractiveHoverButton>
-        </div>
+        {/*
+  フッター手前の参加登録ボタンは一時的に非表示
+
+  <div className="flex justify-center pb-16">
+    <InteractiveHoverButton
+      onClick={() => {
+        trackRegistrationClick('footer');
+        window.open('https://ws.formzu.net/fgen/S744341790/', '_blank');
+      }}
+      className="registration-button bg-emerald-600 text-white border-2 border-emerald-600 hover:bg-emerald-700 py-6 px-16 text-2xl"
+    >
+      {t.footer.register}
+    </InteractiveHoverButton>
+  </div>
+*/}
       </div>
 
       {/* フッター - TracingBeamの外に配置 */}
