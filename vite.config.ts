@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite"
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/gcf/2027/',
+  base: '/gcf/2026/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
